@@ -1,0 +1,31 @@
+﻿<Page x:Class="dz_Dapper.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:dz_Dapper.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+	<Grid Background="Wheat">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.8*"/>
+			<RowDefinition Height="0.1*"/>
+		</Grid.RowDefinitions>
+		<Button Height="30" Background="Orange" Width="100" FontSize="16" HorizontalAlignment="Left" Margin="20 0 0 0" Content="Назад" Click="Back_btn_click" IsCancel="True"/>
+		<DataGrid IsReadOnly="True" SelectionMode="Single" Grid.Row="1" x:Name="ItemsGrid" AutoGenerateColumns="False" FontSize="16">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Id" Width="*" Binding="{Binding Items.Id}"/>
+				<DataGridTextColumn Header="Назва" Width="*" Binding="{Binding Items.Name}"/>
+				<DataGridTextColumn Header="Ціна" Width="*" Binding="{Binding Items.Price}"/>
+				<DataGridTextColumn Header="Кількість" Width="*" Binding="{Binding Items.Count}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+		<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+			<Button x:Name="addItem" Height="30" Background="Orange" Width="170" FontSize="16" Margin="10 0 10 0" Content="Додати товар" Click="Add_btn_click"/>
+			<Button x:Name="editItem" Height="30" Background="Orange" Width="170" FontSize="16" Margin="10 0 10 0" Content="Змінити інформацію" Click="Change_btn_click"/>
+		</StackPanel>
+	</Grid>
+</Page>
